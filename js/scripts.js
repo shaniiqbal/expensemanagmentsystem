@@ -75,12 +75,12 @@
 			 	if(!currentUser){
 				console.log(pathname);
 					if (pathname.indexOf("login.html") == -1 && pathname.indexOf("register.html") == -1) {
-					 window.location = 'login.html';
+					 window.location = window.location.hostname+'login.html';
 					
 					}
 				}else{
 					if (pathname.indexOf("login.html") != -1 && pathname.indexOf("register.html") != -1) {
-					  window.location = 'dashboard.html';
+					  window.location = window.location.hostname+'dashboard.html';
 					 
 					}
 				}
@@ -94,5 +94,5 @@
 
 var logout = function(){
   localStorage.removeItem('currentUser');
-  window.location = 'login.html';
+  window.location = window.location.hostname+'login.html';
 };
