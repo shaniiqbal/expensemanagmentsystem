@@ -71,9 +71,10 @@
   $( document ).ready(function() {
 		var currentUser = localStorage.getItem("currentUser");
 		var pathname = window.location.pathname;
-			console.log(pathname);
+			console.log(pathname.indexOf("index.html"));
 		  if(pathname.indexOf("index.html") == -1){
-			 	/*if(!currentUser){
+			  console.log("work");
+			 	if(!currentUser){
 				console.log(pathname);
 					if (pathname.indexOf("login.html") == -1 && pathname.indexOf("register.html") == -1) {
 					 window.location = '/screen/login.html';
@@ -84,7 +85,7 @@
 					  window.location = '/screen/dashboard.html';
 					 
 					}
-				}*/
+				}
 		  }else{
 			 return false;
 		  }
