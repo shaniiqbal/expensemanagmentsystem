@@ -71,7 +71,7 @@
   $( document ).ready(function() {
 		var currentUser = localStorage.getItem("currentUser");
 		var pathname = window.location.pathname;
-			console.log(pathname.indexOf("index.html"));
+			console.log(pathname);
 		  if(pathname.indexOf("index.html") == -1){
 			  console.log("work");
 			 	if(!currentUser){
