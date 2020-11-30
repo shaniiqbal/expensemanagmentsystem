@@ -23,12 +23,13 @@
               var Alluser = localStorage.getItem("AllUsers");
               Alluser = JSON.parse(Alluser);
               console.log(Alluser);
-              let validation = Alluser.find((user)=>{
-                if(user.email == email && user.password == password){
-                    localStorage.setItem('currentUser', JSON.stringify(user));
-                    return true;
-                }
-            });
+		  if(Alluser != null){
+				let validation = Alluser.find((user)=>{
+					if(user.email == email && user.password == password){
+						localStorage.setItem('currentUser', JSON.stringify(user));
+						return true;
+					}
+				});
 
             console.log(validation);
               if(!validation){
@@ -64,7 +65,21 @@
                 localStorage.setItem('currentUser', JSON.stringify(validation));
                 window.location = "../screen/dashboard.html";
               }
-              
+		  }else{
+			  $("#success").html("<div class='alert alert-danger'>");
+                $("#success > .alert-danger")
+                    .html(
+                        "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;"
+                    )
+                    .append("</button>");
+                $("#success > .alert-danger").append(
+                    "<strong>Error: Email and Password not exist</strong>"
+                );
+                $("#success > .alert-danger").append("</div>");
+                //clear all fields
+                $("#loginForm").trigger("reset");
+			   $this.prop("disabled", false);
+		  }
           },
           filter: function () {
               return $(this).is(":visible");

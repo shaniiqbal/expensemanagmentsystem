@@ -69,21 +69,26 @@
   })(jQuery); // End of use strict
 
   $( document ).ready(function() {
-    var currentUser = localStorage.getItem("currentUser");
-    var pathname = window.location.pathname;
-  if(!currentUser){
-    
-    console.log(pathname);
-    if (pathname.indexOf("login.html") == -1 && pathname.indexOf("register.html") == -1) {
-     window.location = 'login.html';
-    
-    }
-  }else{
-    if (pathname.indexOf("login.html") != -1 && pathname.indexOf("register.html") != -1) {
-      window.location = 'dashboard.html';
-     
-     }
-  }
+		var currentUser = localStorage.getItem("currentUser");
+		var pathname = window.location.pathname;
+		  if(pathname.indexOf("index.html") == -1){
+			 	if(!currentUser){
+				console.log(pathname);
+					if (pathname.indexOf("login.html") == -1 && pathname.indexOf("register.html") == -1) {
+					 window.location = 'login.html';
+					
+					}
+				}else{
+					if (pathname.indexOf("login.html") != -1 && pathname.indexOf("register.html") != -1) {
+					  window.location = 'dashboard.html';
+					 
+					}
+				}
+		  }else{
+			 return false;
+		  }
+   
+ 
 });
  
 
